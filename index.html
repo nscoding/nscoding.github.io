@@ -509,7 +509,7 @@
         <p class="hero-sub">Building the <a href="https://apps.apple.com/us/app/facebook/id284882215" target="_blank" rel="noopener">Facebook app</a> at <a href="https://www.meta.com/about" target="_blank" rel="noopener">Meta</a>, previously on Wunderlist — and making small apps on the side.</p>
         <div class="hero-links">
           <a class="hero-link" href="https://www.linkedin.com/in/nscoding/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a class="hero-link" href="mailto:p.chamelo@outlook.com">Email ↗</a>
+          <a class="hero-link" id="email-link" href="#">Email ↗</a>
         </div>
       </div>
     </div>
@@ -626,5 +626,11 @@
   </section>
 
 
+  <script>
+    (function() {
+      var u = 'p.chamelo', d = 'outlook' + '.com';
+      document.getElementById('email-link').href = 'mailto:' + u + '@' + d;
+    })();
+  </script>
 </body>
 </html>
