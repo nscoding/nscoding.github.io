@@ -69,54 +69,34 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 64px 48px 56px;
-      text-align: center;
+      padding: 56px 48px 48px;
       background: #fff;
+      border-bottom: 1px solid #f0f0f0;
     }
 
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 16px;
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
     }
 
     .hero h1 {
-      font-size: clamp(40px, 6vw, 72px);
+      font-size: clamp(32px, 4vw, 48px);
       font-weight: 900;
-      letter-spacing: -3px;
-      line-height: 0.95;
-      background: linear-gradient(135deg, #ff0080 0%, #ff8c00 25%, #40e0d0 50%, #3b82f6 75%, #9333ea 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: #111;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: #bbb;
     }
 
     .hero-sub {
-      margin-top: 16px;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 400;
-      color: #777;
-      max-width: 420px;
-      margin-left: auto;
-      margin-right: auto;
+      color: #888;
       line-height: 1.5;
-    }
-
-    .hero-swatches {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 28px;
-    }
-
-    .swatch {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
     }
 
     /* ── APP SECTIONS ── */
@@ -474,7 +454,7 @@
       nav { padding: 0 24px; }
       .nav-links { display: none; }
 
-      .hero { padding: 48px 24px 40px; }
+      .hero { padding: 36px 24px; }
 
       .app-section { padding: 80px 24px; }
 
@@ -517,18 +497,9 @@
 
   <!-- HERO -->
   <section class="hero">
-    <span class="hero-eyebrow">iOS &amp; macOS</span>
-    <h1>Apps built<br>with care</h1>
-    <p class="hero-sub">Two carefully crafted apps for Mac and iPhone.</p>
-    <div class="hero-swatches">
-      <div class="swatch" style="background:#ff0080"></div>
-      <div class="swatch" style="background:#ff4000"></div>
-      <div class="swatch" style="background:#ff8c00"></div>
-      <div class="swatch" style="background:#ffdd00"></div>
-      <div class="swatch" style="background:#00dd88"></div>
-      <div class="swatch" style="background:#00ccff"></div>
-      <div class="swatch" style="background:#3b82f6"></div>
-      <div class="swatch" style="background:#9333ea"></div>
+    <div class="hero-inner">
+      <h1>Hi, I'm Patrik. <span>These are my apps.</span></h1>
+      <p class="hero-sub">Two small tools I built for myself that turned out to be useful for others.</p>
     </div>
   </section>
 
