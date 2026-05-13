@@ -373,24 +373,45 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
-      color: #111;
-      background: #fff;
+      color: #fff;
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
       font-size: 15px;
       font-weight: 700;
       padding: 16px 32px;
       border-radius: var(--radius-btn);
-      transition: transform 0.15s, opacity 0.15s;
+      border: 1px solid rgba(255,255,255,0.28);
+      box-shadow:
+        0 2px 12px rgba(0,0,0,0.2),
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        inset 0 -1px 0 rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .store-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 60%);
+      border-radius: inherit;
+      pointer-events: none;
     }
 
     .store-btn:hover {
       transform: translateY(-2px);
-      opacity: 0.92;
+      box-shadow:
+        0 8px 28px rgba(0,0,0,0.28),
+        inset 0 1px 0 rgba(255,255,255,0.45),
+        inset 0 -1px 0 rgba(0,0,0,0.08);
     }
 
     .store-btn .price-tag {
       font-weight: 500;
       font-size: 13px;
-      color: #777;
+      color: rgba(255,255,255,0.6);
       margin-left: 2px;
     }
 
