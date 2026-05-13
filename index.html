@@ -69,7 +69,7 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 56px 48px 48px;
+      padding: 48px 48px 44px;
       background: #fff;
       border-bottom: 1px solid #f0f0f0;
     }
@@ -77,26 +77,51 @@
     .hero-inner {
       max-width: 860px;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .hero-avatar {
+      flex-shrink: 0;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e8d5ff 0%, #d0e8ff 100%);
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 60% 10%;
+      transform: scale(1.15);
     }
 
     .hero h1 {
-      font-size: clamp(32px, 4vw, 48px);
+      font-size: clamp(22px, 3vw, 30px);
       font-weight: 900;
-      letter-spacing: -1.5px;
-      line-height: 1.1;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
       color: #111;
-      margin-bottom: 10px;
+      margin-bottom: 4px;
     }
 
-    .hero h1 span {
-      color: #bbb;
+    .hero-role {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0064e0;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
     }
 
     .hero-sub {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 400;
       color: #888;
       line-height: 1.5;
+      max-width: 480px;
     }
 
     /* ── APP SECTIONS ── */
@@ -384,69 +409,6 @@
       border: none;
     }
 
-    /* ── ABOUT ── */
-    .about-section {
-      padding: 72px 48px;
-      background: #f9f9f9;
-    }
-
-    .about-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 56px;
-    }
-
-    .about-avatar {
-      flex-shrink: 0;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      overflow: hidden;
-      background: linear-gradient(135deg, #e8d5ff 0%, #d0e8ff 100%);
-    }
-
-    .about-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 60% 10%;
-      transform: scale(1.15);
-    }
-
-    .about-text h2 {
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: -1px;
-      color: #111;
-      margin-bottom: 4px;
-    }
-
-    .about-role {
-      font-size: 14px;
-      font-weight: 600;
-      color: #0064e0;
-      letter-spacing: 0.02em;
-      margin-bottom: 16px;
-    }
-
-    .about-bio {
-      font-size: 15px;
-      color: #555;
-      line-height: 1.65;
-      max-width: 540px;
-    }
-
-    @media (max-width: 800px) {
-      .about-section { padding: 48px 24px; }
-      .about-inner {
-        flex-direction: column;
-        text-align: center;
-        gap: 28px;
-      }
-      .about-bio { margin: 0 auto; }
-    }
 
 
     /* ── RESPONSIVE ── */
@@ -454,7 +416,9 @@
       nav { padding: 0 24px; }
       .nav-links { display: none; }
 
-      .hero { padding: 36px 24px; }
+      .hero { padding: 28px 24px; }
+      .hero-inner { gap: 20px; }
+      .hero-avatar { width: 68px; height: 68px; }
 
       .app-section { padding: 80px 24px; }
 
@@ -491,15 +455,20 @@
     <ul class="nav-links">
       <li><a href="#color-picker">Color Picker</a></li>
       <li><a href="#greek-radio">Greek Radio</a></li>
-      <li><a href="#about">About</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <h1>Hi, I'm Patrik. <span>These are my apps.</span></h1>
-      <p class="hero-sub">Two small tools I built for myself that turned out to be useful for others.</p>
+      <div class="hero-avatar">
+        <img src="avatar.jpeg" alt="Patrik Tomas Chamelo" />
+      </div>
+      <div>
+        <h1>Patrik Tomas Chamelo</h1>
+        <p class="hero-role">Software Engineer · Meta</p>
+        <p class="hero-sub">I build for the Facebook app at Meta and ship indie apps on the side. These are mine.</p>
+      </div>
     </div>
   </section>
 
@@ -604,20 +573,6 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about-section" id="about">
-    <div class="about-inner">
-      <div class="about-avatar">
-        <img src="avatar.jpeg" alt="Patrick Chamelo" />
-      </div>
-      <div class="about-text">
-        <h2>Patrik Tomas Chamelo</h2>
-        <p class="about-role">Software Engineer · Meta</p>
-        <p class="about-bio">I build for the Facebook app at Meta and ship indie apps on the side. Color Picker and Greek Radio are two small tools I made for myself that turned out to be useful for others too.</p>
-      </div>
     </div>
   </section>
 
