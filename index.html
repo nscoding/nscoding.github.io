@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patrick Chamelo – Apps</title>
+  <meta name="description" content="Color Picker and Greek Radio – two apps for Mac and iPhone by Patrick Chamelo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-lg: 24px;
+      --radius-btn: 50px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: #fff;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 48px;
+      height: 64px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      color: #111;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: #111; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 140px 48px 120px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(56px, 9vw, 112px);
+      font-weight: 900;
+      letter-spacing: -4px;
+      line-height: 0.95;
+      background: linear-gradient(135deg, #ff0080 0%, #ff8c00 25%, #40e0d0 50%, #3b82f6 75%, #9333ea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      margin-top: 32px;
+      font-size: 20px;
+      font-weight: 400;
+      color: #777;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .hero-swatches {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 60px;
+    }
+
+    .swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+
+    /* ── APP SECTIONS ── */
+    .app-section {
+      padding: 120px 48px;
+    }
+
+    .app-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* ── COLOR PICKER ── */
+    .cp-section {
+      background: linear-gradient(135deg, #18001a 0%, #3d0070 25%, #6600cc 50%, #0044ff 75%, #00c8ff 100%);
+    }
+
+    .cp-section .app-info { color: #fff; }
+
+    /* ── GREEK RADIO ── */
+    .gr-section {
+      background: linear-gradient(150deg, #001f5c 0%, #003b9e 40%, #0061d5 70%, #1a8fff 100%);
+    }
+
+    .gr-section .app-info { color: #fff; }
+
+    .gr-section .app-inner { direction: rtl; }
+    .gr-section .app-info  { direction: ltr; }
+    .gr-section .app-visual { direction: ltr; }
+
+    /* ── APP INFO ── */
+    .platform-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.9);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+
+    .app-info h2 {
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .app-tagline {
+      font-size: 18px;
+      font-weight: 500;
+      opacity: 0.75;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    .features {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+      margin-bottom: 48px;
+    }
+
+    .features li {
+      font-size: 15px;
+      font-weight: 500;
+      opacity: 0.85;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .features li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+      flex-shrink: 0;
+    }
+
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #111;
+      background: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: var(--radius-btn);
+      transition: transform 0.15s, opacity 0.15s;
+    }
+
+    .store-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    .store-btn .price-tag {
+      font-weight: 500;
+      font-size: 13px;
+      color: #777;
+      margin-left: 2px;
+    }
+
+    /* ── VISUALS ── */
+    .app-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Color Picker visual: swatch grid */
+    .cp-visual-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 28px;
+      padding: 36px;
+      backdrop-filter: blur(10px);
+      width: 280px;
+    }
+
+    .cp-card-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 28px;
+    }
+
+    .cp-card-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .cp-hex-display {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cp-hex-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.5;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .cp-hex-value {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .cp-preview {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #7B2FFF;
+    }
+
+    .cp-swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+    }
+
+    .cp-swatch {
+      aspect-ratio: 1;
+      border-radius: 50%;
+    }
+
+    /* Greek Radio visual: player card */
+    .gr-visual-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 28px;
+      padding: 36px;
+      backdrop-filter: blur(10px);
+      width: 280px;
+      text-align: center;
+    }
+
+    .gr-station-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fff2 0%, #fff3 100%);
+      border: 1px solid rgba(255,255,255,0.2);
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+    }
+
+    .gr-station-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .gr-station-genre {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 28px;
+    }
+
+    .gr-waves {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 4px;
+      height: 40px;
+      margin-bottom: 28px;
+    }
+
+    .gr-wave-bar {
+      width: 4px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.6);
+      animation: wave 1.2s ease-in-out infinite;
+    }
+
+    .gr-wave-bar:nth-child(1) { height: 40%; animation-delay: 0s; }
+    .gr-wave-bar:nth-child(2) { height: 70%; animation-delay: 0.1s; }
+    .gr-wave-bar:nth-child(3) { height: 100%; animation-delay: 0.2s; }
+    .gr-wave-bar:nth-child(4) { height: 60%; animation-delay: 0.3s; }
+    .gr-wave-bar:nth-child(5) { height: 80%; animation-delay: 0.15s; }
+    .gr-wave-bar:nth-child(6) { height: 45%; animation-delay: 0.05s; }
+    .gr-wave-bar:nth-child(7) { height: 90%; animation-delay: 0.25s; }
+    .gr-wave-bar:nth-child(8) { height: 55%; animation-delay: 0.35s; }
+
+    @keyframes wave {
+      0%, 100% { transform: scaleY(1); opacity: 0.6; }
+      50% { transform: scaleY(0.3); opacity: 1; }
+    }
+
+    .gr-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .gr-ctrl-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .gr-ctrl-btn.play {
+      width: 56px;
+      height: 56px;
+      background: #fff;
+      font-size: 18px;
+      color: #003b9e;
+      border: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0a0a;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 56px 48px;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+
+      .hero { padding: 100px 24px 80px; }
+
+      .app-section { padding: 80px 24px; }
+
+      .app-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+
+      .gr-section .app-inner { direction: ltr; }
+
+      .app-visual { order: -1; }
+
+      .features {
+        grid-template-columns: 1fr;
+        max-width: 240px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+      }
+
+      .store-btn { margin: 0 auto; }
+
+      .cp-visual-card,
+      .gr-visual-card { width: 240px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">Patrick Chamelo</a>
+    <ul class="nav-links">
+      <li><a href="#color-picker">Color Picker</a></li>
+      <li><a href="#greek-radio">Greek Radio</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-eyebrow">iOS &amp; macOS</span>
+    <h1>Apps built<br>with care</h1>
+    <p class="hero-sub">Two carefully crafted apps for Mac and iPhone.</p>
+    <div class="hero-swatches">
+      <div class="swatch" style="background:#ff0080"></div>
+      <div class="swatch" style="background:#ff4000"></div>
+      <div class="swatch" style="background:#ff8c00"></div>
+      <div class="swatch" style="background:#ffdd00"></div>
+      <div class="swatch" style="background:#00dd88"></div>
+      <div class="swatch" style="background:#00ccff"></div>
+      <div class="swatch" style="background:#3b82f6"></div>
+      <div class="swatch" style="background:#9333ea"></div>
+    </div>
+  </section>
+
+  <!-- COLOR PICKER -->
+  <section class="app-section cp-section" id="color-picker">
+    <div class="app-inner">
+
+      <div class="app-info">
+        <span class="platform-badge">macOS</span>
+        <h2>Color Picker</h2>
+        <p class="app-tagline">Magnify, pick, copy. Done.<br>The color utility built for developers and designers.</p>
+        <ul class="features">
+          <li>Built-in screen magnifier</li>
+          <li>Hex &amp; RGB values</li>
+          <li>Color swatch library</li>
+          <li>Xcode drag &amp; drop</li>
+          <li>Swift &amp; Obj-C snippets</li>
+          <li>Dark mode support</li>
+        </ul>
+        <a class="store-btn" href="https://apps.apple.com/us/app/color-picker/id641027709?mt=12" target="_blank" rel="noopener">
+          ↗ Mac App Store
+          <span class="price-tag">$2.99</span>
+        </a>
+      </div>
+
+      <div class="app-visual">
+        <div class="cp-visual-card">
+          <div class="cp-card-header">
+            <div class="cp-card-dot" style="background:#ff5f56"></div>
+            <div class="cp-card-dot" style="background:#ffbd2e"></div>
+            <div class="cp-card-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="cp-hex-display">
+            <div>
+              <div class="cp-hex-label">Hex</div>
+              <div class="cp-hex-value">#7B2FFF</div>
+            </div>
+            <div class="cp-preview"></div>
+          </div>
+          <div class="cp-swatch-grid">
+            <div class="cp-swatch" style="background:#ff0080"></div>
+            <div class="cp-swatch" style="background:#ff4500"></div>
+            <div class="cp-swatch" style="background:#ffbb00"></div>
+            <div class="cp-swatch" style="background:#00cc66"></div>
+            <div class="cp-swatch" style="background:#0099ff"></div>
+            <div class="cp-swatch" style="background:#7b2fff"></div>
+            <div class="cp-swatch" style="background:#ff66b3"></div>
+            <div class="cp-swatch" style="background:#ff8533"></div>
+            <div class="cp-swatch" style="background:#ffe066"></div>
+            <div class="cp-swatch" style="background:#66ffcc"></div>
+            <div class="cp-swatch" style="background:#66ccff"></div>
+            <div class="cp-swatch" style="background:#cc99ff"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GREEK RADIO -->
+  <section class="app-section gr-section" id="greek-radio">
+    <div class="app-inner">
+
+      <div class="app-info">
+        <span class="platform-badge">iOS</span>
+        <h2>Greek Radio</h2>
+        <p class="app-tagline">Hundreds of Greek stations,<br>live and always with you.</p>
+        <ul class="features">
+          <li>Browse by genre &amp; location</li>
+          <li>Save favorite stations</li>
+          <li>Background playback</li>
+          <li>Shake for random station</li>
+          <li>WiFi &amp; cellular streaming</li>
+          <li>Share your favorites</li>
+        </ul>
+        <a class="store-btn" href="https://apps.apple.com/us/app/greek-radio/id321094050" target="_blank" rel="noopener">
+          ↗ App Store
+          <span class="price-tag">$0.99</span>
+        </a>
+      </div>
+
+      <div class="app-visual">
+        <div class="gr-visual-card">
+          <div class="gr-station-icon">📻</div>
+          <div class="gr-station-name">Αntenna FM</div>
+          <div class="gr-station-genre">Pop · Athens</div>
+          <div class="gr-waves">
+            <div class="gr-wave-bar"></div>
+            <div class="gr-wave-bar"></div>
+            <div class="gr-wave-bar"></div>
+            <div class="gr-wave-bar"></div>
+            <div class="gr-wave-bar"></div>
+            <div class="gr-wave-bar"></div>
+            <div class="gr-wave-bar"></div>
+            <div class="gr-wave-bar"></div>
+          </div>
+          <div class="gr-controls">
+            <div class="gr-ctrl-btn">⏮</div>
+            <div class="gr-ctrl-btn play">▶</div>
+            <div class="gr-ctrl-btn">⏭</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Patrick Chamelo</p>
+    <p style="margin-top:8px">
+      <a href="https://apps.apple.com/us/app/color-picker/id641027709?mt=12" target="_blank" rel="noopener">Color Picker</a>
+      &nbsp;·&nbsp;
+      <a href="https://apps.apple.com/us/app/greek-radio/id321094050" target="_blank" rel="noopener">Greek Radio</a>
+    </p>
+  </footer>
+
+</body>
+</html>
