@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Résumé – Patrik Tomas Chamelo</title>
+  <meta name="description" content="Résumé of Patrik Tomas Chamelo, Senior Staff Software Engineer at Meta." />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNHSRD9P21"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YNHSRD9P21');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-btn: 50px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: #fff;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 48px;
+      height: 64px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #111;
+      text-decoration: none;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: #111; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 48px 48px 44px;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .hero-avatar-ring {
+      flex-shrink: 0;
+      padding: 3px;
+      background: conic-gradient(#f09433, #e6683c, #dc2743, #cc2366, #bc1888, #f09433);
+      border-radius: 50%;
+    }
+
+    .hero-avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e8d5ff 0%, #d0e8ff 100%);
+      border: 3px solid #fff;
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 60% 10%;
+      transform: scale(1.15);
+    }
+
+    .hero h1 {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .hero-role {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0064e0;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      font-weight: 400;
+      color: #888;
+      line-height: 1.5;
+      max-width: 480px;
+      margin-bottom: 12px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .hero-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0064e0;
+      text-decoration: none;
+    }
+
+    .hero-link:hover { text-decoration: underline; }
+
+    /* ── SECTION BASE ── */
+    .resume-section {
+      padding: 72px 48px;
+    }
+
+    .section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* ── PROFILE SECTION ── */
+    .profile-section {
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      padding: 40px 48px 44px;
+    }
+
+    .profile-section .section-label { color: #0064e0; }
+
+    .profile-text {
+      font-size: 15px;
+      font-weight: 400;
+      color: #444;
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    /* ── EXPERIENCE SECTION ── */
+    .exp-section {
+      background: linear-gradient(150deg, #001f5c 0%, #003b9e 40%, #0061d5 70%, #1a8fff 100%);
+    }
+
+    .exp-section .section-label { color: rgba(255,255,255,0.55); }
+
+    .exp-section h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      color: #fff;
+      margin-bottom: 40px;
+    }
+
+    .company-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .company-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px;
+      padding: 28px 32px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .company-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .company-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.3px;
+      line-height: 1.3;
+    }
+
+    .company-dates {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      white-space: nowrap;
+      padding-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .role-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .role-pill {
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 5px 12px;
+      border-radius: 50px;
+      letter-spacing: 0.01em;
+    }
+
+    .period-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .period-block {
+      display: flex;
+      gap: 16px;
+    }
+
+    .period-year {
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      white-space: nowrap;
+      width: 70px;
+      flex-shrink: 0;
+      padding-top: 3px;
+      letter-spacing: 0.02em;
+    }
+
+    .period-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+    }
+
+    .company-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+    }
+
+    .company-bullets {
+      list-style: none;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .company-bullets li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .company-bullets li::before {
+      content: '·';
+      position: absolute;
+      left: 2px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 700;
+    }
+
+    /* ── SKILLS & EDUCATION SECTION ── */
+    .skills-edu-section {
+      background: linear-gradient(135deg, #18001a 0%, #3d0070 25%, #6600cc 50%, #0044ff 75%, #00c8ff 100%);
+    }
+
+    .skills-edu-section .section-label { color: rgba(255,255,255,0.55); }
+
+    .skills-edu-section h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      color: #fff;
+      margin-bottom: 40px;
+    }
+
+    .skills-edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px;
+      padding: 28px 32px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .info-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.3px;
+      margin-bottom: 18px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.9);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+
+    .edu-entry {
+      margin-bottom: 20px;
+    }
+
+    .edu-entry:last-child { margin-bottom: 0; }
+
+    .edu-degree {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+
+    .edu-school {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.4;
+    }
+
+    .edu-year {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* ── AWARDS & PUBLICATIONS SECTION ── */
+    .extra-section {
+      background: #fff;
+      border-top: 1px solid #f0f0f0;
+      padding: 72px 48px;
+    }
+
+    .extra-grid {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+
+    .extra-block-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0064e0;
+      margin-bottom: 8px;
+    }
+
+    .extra-block h3 {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      color: #111;
+      margin-bottom: 24px;
+    }
+
+    .award-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .award-list li {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .award-list li::before {
+      content: '·';
+      position: absolute;
+      left: 1px;
+      color: #0064e0;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .pub-text {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .pub-text em {
+      font-style: italic;
+      color: #666;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+
+      .hero { padding: 28px 24px; }
+      .hero-inner { gap: 20px; }
+      .hero-avatar { width: 68px; height: 68px; border-width: 2px; }
+
+      .resume-section,
+      .profile-section,
+      .extra-section { padding: 56px 24px; }
+
+      .skills-edu-grid { grid-template-columns: 1fr; }
+
+      .extra-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .period-block { flex-direction: column; gap: 4px; }
+      .period-year { width: auto; }
+
+      .company-card { padding: 22px 20px; }
+      .info-card { padding: 22px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">nscoding</a>
+    <ul class="nav-links">
+      <li><a href="index.html#color-picker">Color Picker</a></li>
+      <li><a href="index.html#greek-radio">Greek Radio</a></li>
+      <li><a href="resume.html" class="active">Résumé</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-avatar-ring">
+        <div class="hero-avatar">
+          <img src="avatar.jpeg" alt="Patrik Tomas Chamelo" />
+        </div>
+      </div>
+      <div>
+        <h1>Patrik Tomas Chamelo</h1>
+        <p class="hero-role">Senior Staff Software Engineer · IC7 · Meta</p>
+        <p class="hero-sub">11 years building the Facebook app — design systems, UI infrastructure, and large-scale cross-functional initiatives.</p>
+        <div class="hero-links">
+          <a class="hero-link" href="https://github.com/nscoding" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="hero-link" href="https://www.linkedin.com/in/nscoding/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="hero-link" id="email-link" href="#">Email ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFILE -->
+  <section class="profile-section">
+    <div class="section-inner">
+      <div class="section-label">Profile</div>
+      <p class="profile-text">
+        Currently leading strategic bets for the Facebook application, aiming to create a unified,
+        consistent, and future-forward experience. Over a decade at Meta I have driven foundational
+        design system work, large-scale app-wide initiatives, and cross-functional product execution
+        at the highest level of the iOS engineering ladder.
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="resume-section exp-section" id="experience">
+    <div class="section-inner">
+      <div class="section-label">Experience</div>
+      <h2>Where I've<br>worked.</h2>
+
+      <div class="company-cards">
+
+        <!-- Meta -->
+        <div class="company-card">
+          <div class="company-card-header">
+            <div class="company-title">Software Engineer · Meta<br><span style="font-weight:500;font-size:14px;color:rgba(255,255,255,0.6)">San Francisco, California, USA</span></div>
+            <div class="company-dates">Oct 2014 – Present</div>
+          </div>
+          <div class="role-pills">
+            <span class="role-pill">Senior Staff (IC7) · Jul 2021 – Present</span>
+            <span class="role-pill">Staff (IC6) · Jul 2017 – 2021</span>
+            <span class="role-pill">Senior (IC5) · Jan 2016 – 2017</span>
+            <span class="role-pill">SWE (IC4) · Oct 2014 – 2015</span>
+          </div>
+          <div class="period-blocks">
+            <div class="period-block">
+              <div class="period-year">2025–2026</div>
+              <p class="period-desc">Served as tech lead for the largest recent redesign of Profile, leading cross-functional execution across ~100 partners spanning engineering, design, product, research, and data. Drove rapid prototyping of ambitious concepts to de-risk bold ideas early and accelerate decision-making.</p>
+            </div>
+            <div class="period-block">
+              <div class="period-year">2022–2024</div>
+              <p class="period-desc">Led design language refreshes across major surfaces of the Facebook app, driving adoption of the design system and tokenized foundations at scale. Directed exploratory experiments to modernize the experience and evolve the product toward a more cohesive, contemporary design language.</p>
+            </div>
+            <div class="period-block">
+              <div class="period-year">2020–2021</div>
+              <p class="period-desc">Proposed and drove company-wide initiatives such as Designer Diff Review, enabling designers to formally endorse UI changes directly within pull requests — bridging the gap between design and engineering and integrating design review into the development workflow.</p>
+            </div>
+            <div class="period-block">
+              <div class="period-year">2014–2019</div>
+              <p class="period-desc">Developed Facebook's standard UI libraries, building the design system from foundational primitives — colors, typography, icons — to higher-level components including the core text infrastructure. Built internal tooling for component discoverability and snapshot testing. Drove dark mode, reactions, RTL support, haptic feedback, text-to-speech, and dynamic type.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- NSCoding -->
+        <div class="company-card">
+          <div class="company-card-header">
+            <div class="company-title">Software Engineer · <a href="index.html" style="font-family:'SF Mono','Fira Code',monospace;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.35);padding-bottom:1px;">nscoding</a><br><span style="font-weight:500;font-size:14px;color:rgba(255,255,255,0.6)">Remote · <a href="index.html" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:12px;font-weight:600;">nscoding.github.io ↗</a></span></div>
+            <div class="company-dates">2008 – Present</div>
+          </div>
+          <p class="company-desc">Built iOS and macOS applications with a deep understanding of Apple's ecosystem, delivering exceptional user experiences and intuitive interfaces.</p>
+          <ul class="company-bullets">
+            <li>NSKit — an open-source framework of well-documented data structures, categories, and helpers for Cocoa developers.</li>
+            <li>macOS and iOS apps including Color Picker (macOS), Sleep (macOS), and Greek Radio (iOS). Also worked on Dock Spaces and iDMG.</li>
+          </ul>
+        </div>
+
+        <!-- 6Wunderkinder -->
+        <div class="company-card">
+          <div class="company-card-header">
+            <div class="company-title">Senior Software Engineer (macOS) · 6Wunderkinder GmbH<br><span style="font-weight:500;font-size:14px;color:rgba(255,255,255,0.6)">Berlin, Germany</span></div>
+            <div class="company-dates">May 2012 – Sep 2014</div>
+          </div>
+          <p class="company-desc">As the macOS engineer on Wunderlist, built the entire application from the ground up and contributed to the iOS client. The app won App of the Year and Editor's Choice on the Mac App Store in 2013.</p>
+        </div>
+
+        <!-- Imano -->
+        <div class="company-card">
+          <div class="company-card-header">
+            <div class="company-title">Software Engineer (iOS) · Imano Plc<br><span style="font-weight:500;font-size:14px;color:rgba(255,255,255,0.6)">London, UK · Acquired by Ness Technologies</span></div>
+            <div class="company-dates">Aug 2011 – Apr 2012</div>
+          </div>
+          <p class="company-desc">Developed iOS applications for high-profile clients including Hitachi On Business, London City Guide, The Jet Business, Laithwaites Wine, and Liverpool Football Club.</p>
+        </div>
+
+        <!-- ESA -->
+        <div class="company-card">
+          <div class="company-card-header">
+            <div class="company-title">Software Engineer Intern · Earth &amp; Planetary Remote Sensing Lab<br><span style="font-weight:500;font-size:14px;color:rgba(255,255,255,0.6)">De Montfort University, Leicester, UK</span></div>
+            <div class="company-dates">Sep 2008 – Aug 2009</div>
+          </div>
+          <p class="company-desc">Developed macOS applications to parse and visualize satellite altimetry data through graphs and maps. Participated in software testing for the European Space Agency (ESA) Near Real Time River and Lake processor.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & EDUCATION -->
+  <section class="resume-section skills-edu-section" id="skills">
+    <div class="section-inner">
+      <div class="section-label">Background</div>
+      <h2>Skills &amp;<br>Education.</h2>
+
+      <div class="skills-edu-grid">
+
+        <div class="info-card">
+          <div class="info-card-title">Skills</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Swift</span>
+            <span class="skill-tag">Objective-C</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">Xcode</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-title">Education</div>
+          <div class="edu-entry">
+            <div class="edu-degree">M.Sc. Advanced Software Engineering</div>
+            <div class="edu-school">King's College London, UK</div>
+            <div class="edu-year">2010 – 2011 · Distinction, 72%</div>
+          </div>
+          <div class="edu-entry">
+            <div class="edu-degree">B.Sc (Hons) Software Engineering</div>
+            <div class="edu-school">De Montfort University, Leicester, UK</div>
+            <div class="edu-year">2007 – 2010</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS & PUBLICATIONS -->
+  <section class="extra-section" id="awards">
+    <div class="extra-grid">
+
+      <div class="extra-block">
+        <div class="extra-block-label">Recognition</div>
+        <h3>Awards.</h3>
+        <ul class="award-list">
+          <li>App of the Year — Wunderlist for macOS, Mac App Store 2013</li>
+          <li>Editor's Choice — Wunderlist for macOS, Mac App Store January 2013</li>
+          <li>Runners-up — Space Apps NASA Hackathon, San Francisco, April 2013</li>
+        </ul>
+      </div>
+
+      <div class="extra-block">
+        <div class="extra-block-label">Research</div>
+        <h3>Publications.</h3>
+        <p class="pub-text">
+          Earth Observation &amp; Water Cycle Science Conference, ESRIN — European Space Agency,
+          Frascati, Italy, 18–20 November 2009. Poster presentation:
+          <em>Lake Volume Change by drainage basin from Satellite Radar Altimetry.</em>
+          (Chamelo, P.; Berry, P.A.M.; Smith, R.G.)
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var u = 'p.chamelo', d = 'outlook' + '.com';
+      document.getElementById('email-link').href = 'mailto:' + u + '@' + d;
+    })();
+  </script>
+</body>
+</html>
