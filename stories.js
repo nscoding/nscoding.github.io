@@ -108,4 +108,18 @@
   });
 
   document.querySelector('.hero-avatar-ring').addEventListener('click', openStory);
+
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      if (current > 0) { current--; showStory(current); }
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      if (current < stories.length - 1) { current++; showStory(current); }
+      else { closeStory(); }
+    } else if (e.key === 'Escape') {
+      closeStory();
+    }
+  });
 })();
