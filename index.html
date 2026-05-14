@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Patrik Tomas Chamelo – Apps</title>
-  <meta name="description" content="Color Picker and Greek Radio – two apps for Mac and iPhone by Patrik Tomas Chamelo." />
+  <meta name="description" content="Color Picker, Greek Radio, and Dock Spaces – apps for Mac and iPhone by Patrik Tomas Chamelo." />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNHSRD9P21"></script>
   <script>
@@ -525,6 +525,101 @@
 
 
 
+    /* ── DOCK SPACES ── */
+    .ds-section {
+      background: linear-gradient(150deg, #080810 0%, #0f0f1e 40%, #0a1520 100%);
+    }
+
+    .ds-section .app-info { color: #fff; }
+
+    .ds-visual-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+      width: 280px;
+    }
+
+    .ds-profiles {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .ds-profile {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.04);
+      cursor: default;
+      letter-spacing: 0.01em;
+    }
+
+    .ds-profile.active {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.35);
+      color: #fff;
+    }
+
+    .ds-dock-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .ds-dock {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 14px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .ds-dock-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .ds-switch-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ds-switch-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .ds-switch-btn {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #c77dff);
+      color: #000;
+      letter-spacing: 0.01em;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 800px) {
       nav { padding: 0 24px; }
@@ -558,7 +653,8 @@
       .store-btns { justify-content: center; }
 
       .cp-visual-card,
-      .gr-visual-card { width: 240px; }
+      .gr-visual-card,
+      .ds-visual-card { width: 240px; }
     }
   </style>
 </head>
@@ -570,6 +666,7 @@
     <ul class="nav-links">
       <li><a href="#color-picker">Color Picker</a></li>
       <li><a href="#greek-radio">Greek Radio</a></li>
+      <li><a href="#dock-spaces">Dock Spaces</a></li>
     </ul>
   </nav>
 
@@ -711,6 +808,57 @@
     </div>
   </section>
 
+
+  <!-- DOCK SPACES -->
+  <section class="app-section ds-section" id="dock-spaces">
+    <div class="app-inner">
+
+      <div class="app-info">
+        <span class="platform-badge">macOS</span>
+        <div class="app-title-row">
+          <img class="app-icon" src="icon-dockspaces.png" alt="Dock Spaces icon" />
+          <h2>Dock Spaces</h2>
+        </div>
+        <p class="app-tagline">Multiple Dock configs, one click away.<br>Switch between custom layouts for any workflow.</p>
+        <ul class="features">
+          <li>Multiple named Dock profiles</li>
+          <li>One-click profile switching</li>
+          <li>Save current Dock layout</li>
+          <li>Menu bar quick access</li>
+          <li>Reveal profiles in Finder</li>
+          <li>Free &amp; open source</li>
+        </ul>
+        <div class="store-btns">
+          <a class="store-btn" href="https://github.com/nscoding/dock-spaces-macos" target="_blank" rel="noopener">
+            ↗ GitHub
+            <span class="price-tag">Free</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="app-visual">
+        <div class="ds-visual-card">
+          <div class="ds-profiles">
+            <div class="ds-profile active">Work</div>
+            <div class="ds-profile">Personal</div>
+            <div class="ds-profile">Design</div>
+          </div>
+          <div class="ds-dock-label">Active Dock</div>
+          <div class="ds-dock">
+            <div class="ds-dock-icon">💻</div>
+            <div class="ds-dock-icon">📧</div>
+            <div class="ds-dock-icon">📅</div>
+            <div class="ds-dock-icon">💬</div>
+          </div>
+          <div class="ds-switch-row">
+            <span class="ds-switch-label">Switch profile</span>
+            <span class="ds-switch-btn">Personal →</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
   <script>
     (function() {
